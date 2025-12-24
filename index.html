@@ -191,7 +191,7 @@
             const loader = document.getElementById('loader');
             const loaderMsg = document.getElementById('loader-msg');
             
-            fetch('Thinh_Sò_tree_data')
+            fetch('data.json')
                 .then(response => {
                     if (!response.ok) throw new Error("Chưa có data");
                     return response.json(); // Đọc dạng JSON
@@ -229,7 +229,7 @@
                     document.addEventListener('touchstart', startApp);
                 })
                 .catch(error => {
-                    console.log("Không tìm thấy Thinh_Sò_tree_data hoặc lỗi: " + error);
+                    console.log("Không tìm thấy data.json hoặc lỗi: " + error);
                     // Nếu lỗi thì tự tắt loader luôn
                     loader.style.opacity = 0;
                     setTimeout(() => loader.remove(), 1000);
@@ -562,7 +562,7 @@
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = "huy_hoang_tree_Thinh_Sò_tree_data";
+            a.download = "huy_hoang_tree_data.json";
             a.click();
             URL.revokeObjectURL(url);
         }
